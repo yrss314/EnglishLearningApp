@@ -1,9 +1,20 @@
 package com.example.englishbala;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.SharedPreferences;
 
 public class ConfigData {
+    // 软件所需权限列表
+    public static String[] permissions = new String[]{
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA
+    };
+
+    // 是否第一次运行或者是否获得了应有的权限
+    public static boolean isFirst;
+    public static String isFirstName = "isFirst";
 
     // SharedDataName
     public static String SharedDataName = "configData";
@@ -18,6 +29,20 @@ public class ConfigData {
     // 当前已登录的用户ID
     public static long SinaNumLogged;
     public static String SinaNumLoggedName = "SinaNumLogged";
+
+    // 获取isFirst的值
+    public static boolean getIsFirst() {
+        SharedPreferences preferences = MyApplication.getContext().getSharedPreferences(SharedDataName, Context.MODE_PRIVATE);
+        isFirst = preferences.getBoolean(isFirstName,true);
+        return isFirst;
+    }
+
+    // 设置isFirst的值
+    public static void setIsFirst(boolean isFirst) {
+        SharedPreferences.Editor editor = MyApplication.getContext().getSharedPreferences(SharedDataName, Context.MODE_PRIVATE).edit();
+        editor.putBoolean(isFirstName, isFirst);
+        editor.apply();
+    }
 
     // 获得当前是否为夜间模式
     public static boolean getIsNight() {

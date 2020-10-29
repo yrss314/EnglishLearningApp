@@ -14,7 +14,6 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.gson.Gson;
 import com.lihang.ShadowLayout;
@@ -40,7 +39,7 @@ import okhttp3.Response;
 
 //import com.bumptech.glide.Glide;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private ImageView imgPic;
 

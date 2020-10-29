@@ -5,8 +5,12 @@
     <version value="1" ></version>
 
     <list>
-        //<mapping class="定义信息类的路径"></mapping>
-        <mapping class="定义信息类的路径"></mapping>
+
+        <mapping class="com.example.englishbala.User"></mapping>
+
+        <mapping class="com.example.englishbala.UserConfig"></mapping>
+        <mapping class="com.example.englishbala.DailyData"></mapping>
+
 
     </list>
 </litepal>
