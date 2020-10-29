@@ -1,0 +1,60 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.example.englishbala"
+        minSdkVersion 24
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+//    allprojects {//引入weibosdk时不成功需要这一段，但是加在这里还是报错，需要加在project的gradle里
+//        repositories {
+//            jcenter()
+//            maven { url "https://jitpack.io" }
+//
+//            maven {
+//                url 'http://dl.bintray.com/dev-fingerlinks/maven'
+//            }
+//            mavenCentral()
+//        }
+//    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'org.litepal.android:java:3.0.0'//开源的Android数据库框架
+
+    implementation 'com.gyf.immersionbar:immersionbar:3.0.0'//沉浸式状态栏、导航栏
+
+    implementation 'com.github.lihangleo2:ShadowLayout:2.1.6'  //阴影
+
+    implementation 'com.sina.weibo.sdk:core:4.4.3:openDefaultRelease@aar'//微博sdk
+
+    implementation 'com.github.bumptech.glide:glide:4.11.0'//Glide 是一个 Android 上的
+    // 图片加载和缓存库，其目的是实现平滑的图片列表滚动效果。Glide 是 Android 的一个快速高效的开源媒体管理
+    // 和图像加载框架，它将媒体解码、内存和磁盘缓存以及资源池封装到一个简单易用的接口中。
+
+    implementation 'com.squareup.okhttp3:okhttp:3.4.1'
+
+
+    implementation 'com.google.code.gson:gson:2.7'
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="englishbala" ></dbname>
+
+    <version value="1" ></version>
+
+    <list>
+        //<mapping class="定义信息类的路径"></mapping>
+        <mapping class="定义信息类的路径"></mapping>
+
+    </list>
+</litepal>
