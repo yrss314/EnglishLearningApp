@@ -30,6 +30,12 @@ public class ConfigData {
     public static long SinaNumLogged;
     public static String SinaNumLoggedName = "SinaNumLogged";
 
+    // 是否为修改计划
+    // 0为否，1为是
+    public static final String UPDATE_NAME = "update";
+    public static final int isUpdate = 1;
+    public static final int notUpdate = 0;
+
     // 获取isFirst的值
     public static boolean getIsFirst() {
         SharedPreferences preferences = MyApplication.getContext().getSharedPreferences(SharedDataName, Context.MODE_PRIVATE);

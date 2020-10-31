@@ -2,11 +2,16 @@ package com.example.englishbala;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 
 import org.litepal.LitePal;
 
@@ -15,7 +20,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ChooseWordDBActivity extends BaseActivity {
+public class ChooseWordDBActivity extends BaseActivity implements AdapterView.OnItemClickListener {
     //private RecyclerView recyclerView;
 
     //private ImageView imgRecover;
@@ -30,6 +35,7 @@ public class ChooseWordDBActivity extends BaseActivity {
 
     private List<Map<String,Object>> lists;
 
+    private static final String TAG = "ChooseWordDBActivity";
 
     ImageView imgBook;
 
@@ -42,6 +48,7 @@ public class ChooseWordDBActivity extends BaseActivity {
         setContentView(R.layout.activity_choose_word_db);
 
         listView=(ListView) findViewById(R.id.recycler_word_book_list);
+        listView.setOnItemClickListener(this);
         imgBook=findViewById(R.id.item_img_book);
 
         //init();
@@ -122,5 +129,27 @@ public class ChooseWordDBActivity extends BaseActivity {
                     .setNegativeButton("取消", null)
                     .show();
         }
+    }
+
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Object itemAtPosition = listView.getItemAtPosition(position);
+
+        TextView select = (TextView) view.findViewById(R.id.item_text_book_name);
+        String selectBook = String.valueOf(select.getText());
+        Log.i(TAG, "onItemClick: detail2=" + selectBook);
+
+        // 更新数据
+        UserConfig userConfig = new UserConfig();
+        //userConfig.setCurrentBookId(itemWordBook.getBookId());
+        userConfig.updateAll("userId = ?", ConfigData.getSinaNumLogged() + "");
+        // 传值
+        Intent intent = new Intent(MyApplication.getContext(), ChangePlanActivity.class);
+        intent.putExtra(ConfigData.UPDATE_NAME, ConfigData.notUpdate);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MyApplication.getContext().startActivity(intent);
+
     }
 }
