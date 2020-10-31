@@ -3,6 +3,7 @@ package com.example.englishbala;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import com.google.gson.Gson;
 import com.lihang.ShadowLayout;
@@ -111,6 +113,21 @@ public class LoginActivity extends BaseActivity {
         imgPic = findViewById(R.id.img_inbetweening);
         cardLogin = findViewById(R.id.card_sina_login);
         linearLayout = findViewById(R.id.linear_login);
+    }
+
+    @Override
+    public void onBackPressed() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+        builder.setTitle("提示")
+                .setMessage("确定要退出吗?")
+                .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        ActivityCollector.finishAll();
+                    }
+                })
+                .setNegativeButton("取消", null)
+                .show();
     }
     private void initSinaLogin() {
         WbSdk.install(this, new AuthInfo(this, SinaData.APP_KEY, SinaData.REDIRECT_URL, SinaData.SCOPE));
@@ -218,4 +235,11 @@ public class LoginActivity extends BaseActivity {
             }
         });
     }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (ssoHandler != null) {
+            ssoHandler.authorizeCallBack(requestCode, resultCode, data);
+        }
+    }//缺少这一段会报E/libc: Access denied finding property "ro.serialno"的错误，没有获得授权
 }

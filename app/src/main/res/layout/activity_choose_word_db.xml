@@ -38,7 +38,7 @@
 
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
         android:id="@+id/recycler_word_book_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
