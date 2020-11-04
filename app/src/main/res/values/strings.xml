@@ -5,6 +5,11 @@
     <string name="pref_night_summary">这是黑夜模式哦~</string>
     <string name="黑夜模式">黑夜模式</string>
     <string name="关于">关于</string>
+    <string name="我的">我的</string>
+    <string name="admin">admin</string>
+    <string name="退出登录">退出登录</string>
+    <string name="wel">感谢选择我们的备忘</string>
+
 
 
     <string name="app_welcome">

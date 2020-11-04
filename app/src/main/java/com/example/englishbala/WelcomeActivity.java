@@ -65,7 +65,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
                     List<DailyData> dailyDataList = LitePal.where("dayTime = ?", TimeController.getCurrentDateStamp() + "").find(DailyData.class);
                     if (!dailyDataList.isEmpty()) {
                         DailyData dailyData = dailyDataList.get(0);
-                        textWelCome.setText(dailyData.getDailyEn());
+                        textWelCome.setText("感谢使用我的备忘。记录美好生活记录不开心~");
                         Glide.with(WelcomeActivity.this).load(dailyData.getPicVertical()).into(imgBackground);
                     }
                     break;

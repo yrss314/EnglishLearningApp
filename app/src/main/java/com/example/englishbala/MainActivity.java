@@ -51,16 +51,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
 
     //弹出菜单
-    private PopupWindow popupWindow;
-    private PopupWindow popupCover;
+    private PopupWindow popupWindow;//菜单
+    private PopupWindow popupCover;//底部阴影
     private ViewGroup customView;
     private ViewGroup coverView;
     private LayoutInflater layoutInflater;
     private RelativeLayout main;
     private WindowManager wm;
     private DisplayMetrics metrics;
-    private TextView setting_text;
-    private ImageView setting_image;
+
+    private TextView setting_text1;
+    private ImageView setting_image1;
+    private TextView setting_text2;
+    private ImageView setting_image2;
     public boolean isNightMode(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         return sharedPreferences.getBoolean("nightMode", false);
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         getSupportActionBar().setHomeButtonEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true); //设置toolbar取代actionbar
         initPopUpView();
-        myToolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24);
+        myToolbar.setNavigationIcon(R.drawable.ic_baseline_dehaze_24);//菜单的图标
         myToolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });
         setNightMode();
-
+        ActivityCollector.addActivity(this);
     }
 
     public void initPopUpView(){
@@ -136,23 +139,40 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 popupCover.showAtLocation(main, Gravity.NO_GRAVITY, 0, 0);
                 popupWindow.showAtLocation(main, Gravity.NO_GRAVITY, 0, 0);
 
-                setting_image = customView.findViewById(R.id.setting_settings_image);
-                setting_text = customView.findViewById(R.id.setting_settings_text);
 
-                setting_image.setOnClickListener(new View.OnClickListener() {
+
+
+                setting_image1 = customView.findViewById(R.id.setting_settings_image1);
+                setting_text1 = customView.findViewById(R.id.setting_settings_text1);
+                setting_image1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(MainActivity.this, SettingActivity.class));
                     }
                 });
 
-                setting_text.setOnClickListener(new View.OnClickListener() {
+                setting_text1.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         startActivity(new Intent(MainActivity.this, SettingActivity.class));
                     }
                 });
 
+                setting_image2 = customView.findViewById(R.id.setting_settings_image2);
+                setting_text2 = customView.findViewById(R.id.setting_settings_text2);
+                setting_image2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, MyActivity.class));
+                    }
+                });
+
+                setting_text2.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        startActivity(new Intent(MainActivity.this, MyActivity.class));
+                    }
+                });
                 coverView.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
@@ -260,7 +280,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.menu_clear:
+            case R.id.menu_clear://垃圾桶按钮
                 new AlertDialog.Builder(MainActivity.this)
                         .setMessage("删除全部吗？")
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
