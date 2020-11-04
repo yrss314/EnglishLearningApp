@@ -39,7 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="清词"
+                android:text="@string/app_name"
                 android:textColor="@color/colorBlack"
                 android:textSize="17sp"
                 android:textStyle="bold" />

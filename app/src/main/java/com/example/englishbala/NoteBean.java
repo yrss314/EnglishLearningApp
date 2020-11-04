@@ -5,13 +5,15 @@ public class NoteBean {
     private String content;
     private String time;
     private int tag;
+    private String img;
 
     public NoteBean() {
     }
-    public NoteBean(String content, String time, int tag) {
+    public NoteBean(String content, String time, int tag,String img) {
         this.content = content;
         this.time = time;
         this.tag = tag;
+        this.img=img;
     }
 
     public long getId() {
@@ -30,6 +32,10 @@ public class NoteBean {
         return tag;
     }
 
+    public String getImg() {
+        return img;
+    }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -44,6 +50,10 @@ public class NoteBean {
 
     public void setTag(int tag) {
         this.tag = tag;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     @Override

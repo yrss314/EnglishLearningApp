@@ -17,7 +17,8 @@ public class DBOrders {
             NoteDatabase.ID,
             NoteDatabase.CONTENT,
             NoteDatabase.TIME,
-            NoteDatabase.MODE
+            NoteDatabase.MODE,
+            NoteDatabase.IMG
     };
 
     public DBOrders(Context context){
@@ -39,6 +40,7 @@ public class DBOrders {
         contentValues.put(NoteDatabase.CONTENT, note.getContent());
         contentValues.put(NoteDatabase.TIME, note.getTime());
         contentValues.put(NoteDatabase.MODE, note.getTag());
+        contentValues.put(NoteDatabase.IMG, note.getImg());
         long insertId = db.insert(NoteDatabase.TABLE_NAME, null, contentValues);
         note.setId(insertId);
         return note;
@@ -49,7 +51,7 @@ public class DBOrders {
         Cursor cursor = db.query(NoteDatabase.TABLE_NAME,columns,NoteDatabase.ID + "=?",
                 new String[]{String.valueOf(id)},null,null, null, null);
         if (cursor != null) cursor.moveToFirst();
-        NoteBean e = new NoteBean(cursor.getString(1),cursor.getString(2), cursor.getInt(3));
+        NoteBean e = new NoteBean(cursor.getString(1),cursor.getString(2), cursor.getInt(3),cursor.getString(4));
         return e;
     }
 
@@ -64,6 +66,8 @@ public class DBOrders {
                 note.setContent(cursor.getString(cursor.getColumnIndex(NoteDatabase.CONTENT)));
                 note.setTime(cursor.getString(cursor.getColumnIndex(NoteDatabase.TIME)));
                 note.setTag(cursor.getInt(cursor.getColumnIndex(NoteDatabase.MODE)));
+                note.setImg(cursor.getString(cursor.getColumnIndex(NoteDatabase.IMG)));
+
                 notes.add(note);
             }
         }
@@ -76,6 +80,7 @@ public class DBOrders {
         values.put(NoteDatabase.CONTENT, note.getContent());
         values.put(NoteDatabase.TIME, note.getTime());
         values.put(NoteDatabase.MODE, note.getTag());
+        values.put(NoteDatabase.IMG, note.getImg());
         // updating row
         return db.update(NoteDatabase.TABLE_NAME, values,
                 NoteDatabase.ID + "=?",new String[] { String.valueOf(note.getId())});

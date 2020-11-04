@@ -6,4 +6,9 @@
         android:icon="@android:drawable/ic_menu_delete"
         android:title="Delete"
         app:showAsAction="always" />
+    <item
+        android:id="@+id/addImg"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:title="Delete"
+        app:showAsAction="always" />
 </menu>

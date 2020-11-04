@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Base64;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
@@ -213,29 +214,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         note_Id = data.getExtras().getLong("id", 0);
 
 
-        if (returnMode == 1) {  //update current note
+        if (returnMode == 1) {  //更新
 
             String content = data.getExtras().getString("content");
             String time = data.getExtras().getString("time");
             int tag = data.getExtras().getInt("tag", 1);
+            byte[] img=data.getExtras().getByteArray("img");
+            String img1= Base64.encodeToString(img, Base64.DEFAULT);
 
-            NoteBean newNote = new NoteBean(content, time, tag);
+            NoteBean newNote = new NoteBean(content, time, tag,img1);
             newNote.setId(note_Id);
             DBOrders op = new DBOrders(context);
             op.open();
             op.updateNote(newNote);
             op.close();
-        } else if (returnMode == 0) {  // create new note
+        } else if (returnMode == 0) {  // 新增
             String content = data.getExtras().getString("content");
             String time = data.getExtras().getString("time");
             int tag = data.getExtras().getInt("tag", 1);
-
-            NoteBean newNote = new NoteBean(content, time, tag);
+            byte[] img=data.getExtras().getByteArray("img");
+            System.out.println("MAIN"+img);//至此imgbyte获得，传入edit？？
+            String img1= Base64.encodeToString(img, Base64.DEFAULT);
+            System.out.println(img1);
+            NoteBean newNote = new NoteBean(content, time, tag,img1);
             DBOrders op = new DBOrders(context);
             op.open();
             op.addNote(newNote);
             op.close();
-        } else if (returnMode == 2) { // delete
+        } else if (returnMode == 2) { // 删除
             NoteBean curNote = new NoteBean();
             curNote.setId(note_Id);
             DBOrders op = new DBOrders(context);
@@ -327,6 +333,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 intent.putExtra("time", curNote.getTime());
                 intent.putExtra("mode", 3);     // MODE of 'click to edit'
                 intent.putExtra("tag", curNote.getTag());
+                byte[] buff=Base64.decode(curNote.getImg().getBytes(), Base64.DEFAULT);
+                intent.putExtra("img", buff);
+                System.out.println("main点击item后从数据库获得"+curNote.getImg());//已获得！！！
+
+                System.out.println(buff);//成功转换
                 startActivityForResult(intent, 1);      //collect data from edit
                 Log.d(TAG, "onItemClick: " + position);
                 break;
