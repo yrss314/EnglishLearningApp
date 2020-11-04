@@ -214,7 +214,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
                 if (ConfigData.getIsLogged()) {
                     List<UserConfig> userConfigs = LitePal.where("userId = ?", ConfigData.getSinaNumLogged() + "").find(UserConfig.class);
                     if (userConfigs.get(0).getCurrentBookId() == -1) {
-                        Intent intent = new Intent(WelcomeActivity.this, ChooseWordDBActivity.class);
+                        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                         startActivity(intent);
                     } //else if (userConfigs.get(0).getCurrentBookId() != -1 && userConfigs.get(0).getWordNeedReciteNum() == 0) {
                         //Intent intent = new Intent(WelcomeActivity.this, ChangePlanActivity.class);

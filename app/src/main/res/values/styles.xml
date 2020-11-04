@@ -9,4 +9,18 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowContentTransitions">true</item>
     </style>
+
+    <style name="DayTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimaryDark">@color/colorLightBlueN</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorLightBlueN</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
+
+    <style name="NightTheme" parent="Theme.AppCompat.DayNight.DarkActionBar">
+        <item name="colorPrimaryDark">@color/colorLightBlueN</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorLightBlueN</item>
+        <item name="android:windowContentTransitions">true</item>
+    </style>
 </resources>

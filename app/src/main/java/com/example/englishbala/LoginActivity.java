@@ -69,7 +69,7 @@ public class LoginActivity extends BaseActivity {
                     Toast.makeText(LoginActivity.this, "登录失败，请检查服务器与网络状态", Toast.LENGTH_SHORT).show();
                     break;
                 case SUCCESS:
-                    ActivityCollector.startOtherActivity(LoginActivity.this, ChooseWordDBActivity.class);
+                    ActivityCollector.startOtherActivity(LoginActivity.this, MainActivity.class);
                     break;
             }
         }

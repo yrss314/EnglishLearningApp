@@ -4,26 +4,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorLightWhite"
-    android:orientation="vertical"
+    android:id="@+id/main_layout"
     tools:context=".MainActivity">
 
-    <LinearLayout
-        android:id="@+id/linear_frag_container"
+
+    <ListView
+        android:id="@+id/lv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_nav"
-        android:background="@color/colorLightWhite"
-        android:orientation="vertical"/>
+        android:layout_below="@+id/myToolbar"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="10dp"
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottom_nav"
+        android:background="@color/colorBgWhite"
+        android:dividerHeight="8dp">
+
+    </ListView>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/myToolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"/>
-<!--        app:itemIconTint="@color/selector_bottom"-->
-<!--        app:itemTextColor="@color/selector_bottom"-->
-<!--        app:labelVisibilityMode="unlabeled"-->
-<!--        app:menu="@menu/bottom_nav_menu" -->
+        android:background="@color/colorBgWhite"
+        android:elevation="4dp"
+
+
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="48dp"
+        android:clickable="true"
+        android:focusable="true"
+
+        />
 
 </RelativeLayout>

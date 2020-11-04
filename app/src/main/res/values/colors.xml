@@ -39,4 +39,5 @@
     <color name="colorBgWhite">#FFFFFF</color>
     <color name="colorBgWhiteN">#424242</color>
     <color name="colorBgLittleWhite">#FBFBFD</color>
+    <color name="cover">#66000000</color>
 </resources>
