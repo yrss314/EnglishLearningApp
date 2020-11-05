@@ -37,7 +37,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,AdapterView.OnItemLongClickListener {
     //public static boolean needRefresh = true;  //why need??
 //test gittt
     private NoteDatabase dbHelper;
@@ -65,6 +65,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ImageView setting_image1;
     private TextView setting_text2;
     private ImageView setting_image2;
+
+    private NoteBean curNotede;
     public boolean isNightMode(){
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
         return sharedPreferences.getBoolean("nightMode", false);
@@ -101,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         });
 
         lv.setOnItemClickListener(this);
-
+        lv.setOnItemLongClickListener(this);
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -342,5 +344,39 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 Log.d(TAG, "onItemClick: " + position);
                 break;
         }
+    }
+
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (parent.getId()) {
+            case R.id.lv:
+                curNotede = (NoteBean) parent.getItemAtPosition(position);
+                android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+                builder.setTitle("提示")
+                        .setMessage("请确认是否删除当前数据")
+                        .setPositiveButton("是", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Log.i("thread", "onClick: 对话框事件处理");
+                                //删除数据项
+
+                                DBOrders op = new DBOrders(context);
+                                op.open();
+                                op.removeNote(curNotede);
+                                // 更新适配器
+                                if (noteList.size() > 0) noteList.clear();
+                                noteList.addAll(op.getAllNotes());
+                                adapter.notifyDataSetChanged();
+                                op.close();
+
+
+                                adapter.notifyDataSetChanged();
+                            }
+                        }).setNegativeButton("否", null);
+                builder.create().show();
+
+        }
+        return true;
     }
 }

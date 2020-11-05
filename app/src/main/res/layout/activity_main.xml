@@ -36,7 +36,6 @@
     </androidx.appcompat.widget.Toolbar>
 
 
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -45,9 +44,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="36dp"
         android:layout_marginBottom="48dp"
+        android:backgroundTint="#0C0C0C"
         android:clickable="true"
-        android:focusable="true"
 
-        />
+        android:focusable="true"
+        android:src="@drawable/icon_add"
+        app:rippleColor="@color/colorBlack" />
 
 </RelativeLayout>
