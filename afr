@@ -1,0 +1,93 @@
+[33mcommit 6bd9ec62420f86c801bf41ec60adc823f426e52c[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: yrss <847065177@qq.com>
+Date:   Thu Nov 5 14:29:28 2020 +0800
+
+    done
+
+[33mcommit dd26d2e7eabd3c3e12ee4a870a0bf77c46107861[m
+Author: yrss <847065177@qq.com>
+Date:   Thu Nov 5 14:09:48 2020 +0800
+
+    done
+
+[33mcommit 704e3dd256f0df7c4c0028dfd380feb491d8085f[m
+Author: yrss <847065177@qq.com>
+Date:   Thu Nov 5 13:49:35 2020 +0800
+
+    done
+
+[33mcommit 2c8e0e81e0a1d4c96487743ae755912c156cc0be[m
+Author: yrss <847065177@qq.com>
+Date:   Thu Nov 5 13:27:37 2020 +0800
+
+    longonclick(done)
+
+[33mcommit e4e2852dda8709053149558e04a1be1e79353bcf[m
+Author: yrss <847065177@qq.com>
+Date:   Wed Nov 4 23:40:49 2020 +0800
+
+    modify（undo）
+
+[33mcommit deb736842ed61297aea2f84f46e978b4117fd22f[m
+Author: yrss <847065177@qq.com>
+Date:   Wed Nov 4 16:35:21 2020 +0800
+
+    插入图片、音频（undo）
+
+[33mcommit c0c577e137274e910a10308c9e661b6e52492d5f[m
+Author: yrss <847065177@qq.com>
+Date:   Wed Nov 4 13:55:55 2020 +0800
+
+    黑夜模式（undo）
+
+[33mcommit 0536399c7601b8e5773f0bf87176d9c444781089[m
+Author: yrss <847065177@qq.com>
+Date:   Sun Nov 1 00:36:34 2020 +0800
+
+    隐藏标题栏，沉浸式状态栏；
+    选择书后提示下载或跳转至设置背词个数页面（undo）
+
+[33mcommit 0d8c942eba6128f0e1ee706e56113c5b7349d566[m
+Author: yrss <847065177@qq.com>
+Date:   Sun Nov 1 00:06:28 2020 +0800
+
+    选择书后向后一个页面传值；
+    选择书后提示下载或跳转至设置背词个数页面（undo）
+
+[33mcommit 1e87d9c824ed8c733a2767159ed4ae13fe8ea662[m
+Author: yrss <847065177@qq.com>
+Date:   Sat Oct 31 20:26:12 2020 +0800
+
+    微博授权、跳转至选词书页面；
+    选词书页面布局；
+    选择书后提示下载或跳转至设置背词个数页面（undo）
+
+[33mcommit 302eedcb6ae5291e6e1d5e1681e31ef6272c8213[m
+Merge: 3b5d07a 7e42ea1
+Author: yrss <847065177@qq.com>
+Date:   Thu Oct 29 18:12:53 2020 +0800
+
+    Merge remote-tracking branch 'origin/master' into master
+
+[33mcommit 3b5d07ab119bc7abf9dc780ca21a3a2ad1facb12[m
+Author: yrss <847065177@qq.com>
+Date:   Thu Oct 29 18:10:20 2020 +0800
+
+    隐私政策；
+    获取读取手机应用的权限，二次登录不需要获取；
+    封面（渐变页）；
+    欢迎页；
+    微博登录提示；
+    微博授权（undo）跳转。
+
+[33mcommit 7e42ea194ff8cde3f220fa909b206f305296006f[m
+Author: yrss314 <51962064+yrss314@users.noreply.github.com>
+Date:   Thu Oct 29 12:46:37 2020 +0800
+
+    Create README.md
+
+[33mcommit 6d23f91cd464cdf72911e4b8d34d477203c06457[m
+Author: yrss <847065177@qq.com>
+Date:   Thu Oct 29 12:44:14 2020 +0800
+
+    Initial commit
