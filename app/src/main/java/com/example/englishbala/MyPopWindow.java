@@ -24,7 +24,7 @@ public class MyPopWindow extends BasePopupWindow {
     protected Animator onCreateShowAnimator() {
         ObjectAnimator showAnimator = ObjectAnimator.ofFloat(getDisplayAnimateView(), View.TRANSLATION_X, -getScreenWidth(), 0);
         showAnimator.setDuration(animatTime);
-        //showAnimator.setInterpolator(new OvershootInterpolator(3));
+
         return showAnimator;
     }
 
@@ -32,7 +32,7 @@ public class MyPopWindow extends BasePopupWindow {
     protected Animator onCreateDismissAnimator() {
         ObjectAnimator showAnimator = ObjectAnimator.ofFloat(getDisplayAnimateView(), View.TRANSLATION_X, 0, getScreenWidth());
         showAnimator.setDuration(animatTime);
-        //showAnimator.setInterpolator(new OvershootInterpolator(-3));
+
         return showAnimator;
     }
 

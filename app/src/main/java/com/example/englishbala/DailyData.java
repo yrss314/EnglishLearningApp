@@ -10,11 +10,7 @@ public class DailyData extends LitePalSupport {
 
     private byte[] picHorizontal;
 
-    private String dailyChs;
 
-    private String dailyEn;
-
-    private String dailySound;
 
     // 更新时间
     private String dayTime;
@@ -43,35 +39,11 @@ public class DailyData extends LitePalSupport {
         this.picHorizontal = picHorizontal;
     }
 
-    public String getDailyChs() {
-        return dailyChs;
-    }
 
-    public void setDailyChs(String dailyChs) {
-        this.dailyChs = dailyChs;
-    }
-
-    public String getDailyEn() {
-        return dailyEn;
-    }
-
-    public void setDailyEn(String dailyEn) {
-        this.dailyEn = dailyEn;
-    }
-
-    public String getDayTime() {
-        return dayTime;
-    }
 
     public void setDayTime(String dayTime) {
         this.dayTime = dayTime;
     }
 
-    public String getDailySound() {
-        return dailySound;
-    }
 
-    public void setDailySound(String dailySound) {
-        this.dailySound = dailySound;
-    }
 }

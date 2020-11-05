@@ -51,12 +51,7 @@ public class ActivityCollector {
         context.startActivity(intent);
     }
 
-    public static void startOtherActivity(Context context, Class cls, ActivityOptionsCompat activityOptionsCompat) {
-        Intent intent = new Intent();
-        intent.setClass(MyApplication.getContext(), cls);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent, activityOptionsCompat.toBundle());
-    }
+
 
 }
 //在活动管理器中，我们通过一个List来暂存活动，然后提供了一个addActivity()方法向 List中添加一个活动，

@@ -56,12 +56,8 @@ public class ConfigData {
         isNight = preferences.getBoolean(isNightName, false);
         return isNight;
     }
-    // 设置当前是否为夜间模式
-    public static void setIsNight(boolean isNight) {
-        SharedPreferences.Editor editor = MyApplication.getContext().getSharedPreferences(SharedDataName, Context.MODE_PRIVATE).edit();
-        editor.putBoolean(isNightName, isNight);
-        editor.apply();
-    }
+
+
 
     // 得到isLogged值
     public static boolean getIsLogged() {

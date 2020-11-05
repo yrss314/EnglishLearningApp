@@ -38,8 +38,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener,AdapterView.OnItemLongClickListener {
-    //public static boolean needRefresh = true;  //why need??
-//test gittt
+
     private NoteDatabase dbHelper;
 
     private Context context = this;
@@ -67,14 +66,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     private ImageView setting_image2;
 
     private NoteBean curNotede;
-    public boolean isNightMode(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        return sharedPreferences.getBoolean("nightMode", false);
-    }
-    public void setNightMode(){
-        setTheme(R.style.DayTheme);
 
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
@@ -112,7 +105,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 startActivityForResult(intent, 0);
             }
         });
-        setNightMode();
         ActivityCollector.addActivity(this);
     }
 

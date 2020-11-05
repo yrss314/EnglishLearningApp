@@ -61,30 +61,6 @@ public class BaiduHelper {
                 });
     }
 
-    public static void analysePicture(String imgUrl, final CallBackListener callBackListener) {
-        RequestBody formBody = new FormBody.Builder()
-                .add("image", imgUrl)
-                .add("detect_direction", "true")
-                .add("language_type", "ENG")
-                .build();
-        Request request = new Request.Builder()
-                .post(formBody)
-                .url(URL_GET_OCR + "?access_token=" + assessToken)
-                .build();
 
-        OkHttpClient okHttpClient = new OkHttpClient();
-        okHttpClient.newCall(request)
-                .enqueue(new Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        callBackListener.onFailure(call, e);
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        callBackListener.onResponse(call, response);
-                    }
-                });
-    }
 
 }
