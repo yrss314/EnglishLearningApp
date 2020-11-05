@@ -110,7 +110,7 @@ public class LoginActivity extends BaseActivity {
 
     }
     private void init() {
-        imgPic = findViewById(R.id.img_inbetweening);
+
         cardLogin = findViewById(R.id.card_sina_login);
         linearLayout = findViewById(R.id.linear_login);
     }

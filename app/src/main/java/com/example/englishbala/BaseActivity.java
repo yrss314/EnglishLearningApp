@@ -111,23 +111,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public static boolean isServiceExisted(Context context, String className) {
-        ActivityManager activityManager = (ActivityManager) context
-                .getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningServiceInfo> serviceList = activityManager
-                .getRunningServices(Integer.MAX_VALUE);
-        if (!(serviceList.size() > 0)) {
-            return false;
-        }
-        for (int i = 0; i < serviceList.size(); i++) {
-            ActivityManager.RunningServiceInfo serviceInfo = serviceList.get(i);
-            ComponentName serviceName = serviceInfo.service;
-            if (serviceName.getClassName().equals(className)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     // 开启数据监测
     public static void prepareDailyData() {
