@@ -46,7 +46,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:textSize="24sp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
         <LinearLayout
@@ -73,7 +73,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:layout_gravity="center"
-                android:textSize="24sp"/>
+                android:textSize="20sp"/>
 
         </LinearLayout>
         <ImageView

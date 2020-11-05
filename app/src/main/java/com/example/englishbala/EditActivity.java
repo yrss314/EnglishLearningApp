@@ -202,8 +202,11 @@ public class EditActivity extends AppCompatActivity {
 //            if (et.getText().toString().equals(old_content) && !tagChange)//仅当未修改文字保持不变（所以当文字未改动图片改动时，note和原来一样。所以干脆改动未改动都视为改动重新获取数据存入数据库）
 //                myintent.putExtra("mode", -1); // edit nothing
 //            else {
+                byte[] getbuff;
                 Bitmap bitmappp = ((BitmapDrawable)img.getDrawable()).getBitmap();
-                byte[] getbuff=Bitmap2Bytes(bitmappp);
+                if (bitmappp != null) {
+                    getbuff = Bitmap2Bytes(bitmappp);
+
 
                 myintent.putExtra("mode", 1); //edit the content
                 myintent.putExtra("content", et.getText().toString());
@@ -211,7 +214,14 @@ public class EditActivity extends AppCompatActivity {
                 myintent.putExtra("id", id);
                 myintent.putExtra("tag", tag);
                 System.out.println("auto方法中"+buff);
-                myintent.putExtra("img", getbuff);
+                myintent.putExtra("img", getbuff);}
+                else {
+                    myintent.putExtra("mode", 1); //edit the content
+                    myintent.putExtra("content", et.getText().toString());
+                    myintent.putExtra("time", dateToStr());
+                    myintent.putExtra("id", id);
+                    myintent.putExtra("tag", tag);
+                }
            // }
         }
     }

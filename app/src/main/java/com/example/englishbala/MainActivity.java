@@ -316,7 +316,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         DBOrders op = new DBOrders(context);
         op.open();
-        // set adapter
+        // 更新适配器
         if (noteList.size() > 0) noteList.clear();
         noteList.addAll(op.getAllNotes());
         op.close();
