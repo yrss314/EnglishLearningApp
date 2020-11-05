@@ -14,7 +14,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FliterNoteAdap extends BaseAdapter implements Filterable {
+public class FliterNoteAdap extends BaseAdapter implements Filterable {//search，不通过数据库如何实现？
     private Context mContext;
 
     private List<NoteBean> backList;//用来备份原始数据
@@ -45,7 +45,6 @@ public class FliterNoteAdap extends BaseAdapter implements Filterable {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        //mContext.setTheme(R.style.DayTheme);
         View v = View.inflate(mContext, R.layout.item_note, null);
         TextView tv_content = (TextView)v.findViewById(R.id.tv_content);
         TextView tv_time = (TextView)v.findViewById(R.id.tv_time);
@@ -72,12 +71,12 @@ public class FliterNoteAdap extends BaseAdapter implements Filterable {
     }
 
     class MyFilter extends Filter {
-        //我们在performFiltering(CharSequence charSequence)这个方法中定义过滤规则
+        //在performFiltering(CharSequence charSequence)这个方法中定义过滤规则
         @Override
         protected FilterResults performFiltering(CharSequence charSequence) {
             FilterResults result = new FilterResults();
             List<NoteBean> list;
-            if (TextUtils.isEmpty(charSequence)) {//当过滤的关键字为空的时候，我们则显示所有的数据
+            if (TextUtils.isEmpty(charSequence)) {//当过滤的关键字为空的时候，则显示所有的数据
                 list = backList;
             } else {//否则把符合条件的数据对象添加到集合中
                 list = new ArrayList<>();

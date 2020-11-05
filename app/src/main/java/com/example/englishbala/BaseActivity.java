@@ -1,21 +1,15 @@
 package com.example.englishbala;
 
-import android.app.ActivityManager;
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.SharedPreferences;
+
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.transition.Explode;
-import android.transition.Fade;
-import android.transition.Slide;
+
 import android.util.Log;
 import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.app.AppCompatDelegate;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -111,23 +105,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public static boolean isServiceExisted(Context context, String className) {
-        ActivityManager activityManager = (ActivityManager) context
-                .getSystemService(Context.ACTIVITY_SERVICE);
-        List<ActivityManager.RunningServiceInfo> serviceList = activityManager
-                .getRunningServices(Integer.MAX_VALUE);
-        if (!(serviceList.size() > 0)) {
-            return false;
-        }
-        for (int i = 0; i < serviceList.size(); i++) {
-            ActivityManager.RunningServiceInfo serviceInfo = serviceList.get(i);
-            ComponentName serviceName = serviceInfo.service;
-            if (serviceName.getClassName().equals(className)) {
-                return true;
-            }
-        }
-        return false;
-    }
+
 
     // 开启数据监测
     public static void prepareDailyData() {
@@ -138,9 +116,7 @@ public class BaseActivity extends AppCompatActivity {
             analyseJsonAndSave();
         } else {
             if (dailyDataList.get(0).getPicVertical() == null ||
-                    dailyDataList.get(0).getPicHorizontal() == null ||
-                    dailyDataList.get(0).getDailyEn() == null ||
-                    dailyDataList.get(0).getDailyChs() == null) {
+                    dailyDataList.get(0).getPicHorizontal() == null)  {
                 analyseJsonAndSave();
             }
         }
@@ -149,8 +125,7 @@ public class BaseActivity extends AppCompatActivity {
     public static void analyseJsonAndSave() {
         byte[] imgVertical;
         byte[] imgHorizontal;
-        String dailyCn;
-        String dailyEn;
+
         String result = "", json, tem;
         LitePal.deleteAll(DailyData.class);
         DailyData dailyData = new DailyData();
@@ -171,14 +146,9 @@ public class BaseActivity extends AppCompatActivity {
             imgVertical = HttpHelper.requestBytes(result);
             json = HttpHelper.requestResult(ConstantData.DAILY_SENTENCE_API);
             Gson gson2 = new Gson();
-            //JsonDailySentence dailySentence = gson2.fromJson(json, JsonDailySentence.class);
-            //dailyCn = dailySentence.getNote();
-            //dailyEn = dailySentence.getContent();
+
             dailyData.setPicHorizontal(imgHorizontal);
             dailyData.setPicVertical(imgVertical);
-            //dailyData.setDailyEn(dailyEn);
-            //dailyData.setDailyChs(dailyCn);
-            //dailyData.setDailySound(dailySentence.getTts());
             dailyData.setDayTime(TimeController.getCurrentDateStamp() + "");
             dailyData.save();
         } catch (Exception e) {
@@ -186,56 +156,9 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    public void windowFade() {
-        getWindow().setEnterTransition(new Fade().setDuration(500));
-        getWindow().setExitTransition(new Fade().setDuration(500));
-        getWindow().setReenterTransition(new Fade().setDuration(500));
-        getWindow().setReturnTransition(new Fade().setDuration(500));
-    }
 
-    public void windowSlide(int position) {
-        getWindow().setEnterTransition(new Slide(position).setDuration(300));
-        getWindow().setExitTransition(new Slide(position).setDuration(300));
-        getWindow().setReenterTransition(new Slide(position).setDuration(300));
-        getWindow().setReturnTransition(new Slide(position).setDuration(300));
-    }
 
-    public void windowExplode() {
-        getWindow().setEnterTransition(new Explode().setDuration(300));
-        getWindow().setExitTransition(new Explode().setDuration(300));
-        getWindow().setReenterTransition(new Explode().setDuration(300));
-        getWindow().setReturnTransition(new Explode().setDuration(300));
-    }
 
-    // 不支持夜间模式
-    public void noNight(){
-        getDelegate().setLocalNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-    }
 
-    /*
-     * fromXType：动画开始前的X坐标类型。取值范围为ABSOLUTE（绝对位置）、RELATIVE_TO_SELF（以自身宽或高为参考）、RELATIVE_TO_PARENT（以父控件宽或高为参考）。
-     * fromXValue：动画开始前的X坐标值。当对应的Type为ABSOLUTE时，表示绝对位置；否则表示相对位置，1.0表示100%。
-     * toXType：动画结束后的X坐标类型。
-     * toXValue：动画结束后的X坐标值。
-     * fromYType：动画开始前的Y坐标类型。
-     * fromYValue：动画开始前的Y坐标值。
-     * toYType：动画结束后的Y坐标类型。
-     * toYValue：动画结束后的Y坐标值
-     * *//*
-    // 下部分操作布局从底部进入动画
-    animation = new TranslateAnimation(
-            Animation.RELATIVE_TO_PARENT, 0.0f,Animation.RELATIVE_TO_PARENT, 0.0f,
-            Animation.RELATIVE_TO_PARENT, 1.0f,Animation.RELATIVE_TO_PARENT, 0.0f
-    );
-            animation.setDuration(2000);
-    //relativeLayout.startAnimation(animation);
-    //imgShow.setVisibility(View.VISIBLE);
-    // 上部分从顶部进入动画
-    animation = new TranslateAnimation(
-            Animation.RELATIVE_TO_PARENT, 0.0f, Animation.RELATIVE_TO_PARENT, 0.0f,
-            Animation.RELATIVE_TO_PARENT, -0.5f, Animation.RELATIVE_TO_PARENT, 0.0f
-    );
-            animation.setDuration(2000);
-    // imgShow.startAnimation(animation);*/
 
 }

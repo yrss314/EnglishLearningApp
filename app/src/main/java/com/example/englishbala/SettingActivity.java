@@ -13,8 +13,7 @@ import android.widget.TextView;
 
 public class SettingActivity extends AppCompatActivity {
 
-    private TextView about;
-    private TextView my;
+
 
 
     @Override

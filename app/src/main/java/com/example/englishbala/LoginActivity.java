@@ -39,7 +39,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-//import com.bumptech.glide.Glide;
+
 
 public class LoginActivity extends BaseActivity {
 
@@ -110,7 +110,7 @@ public class LoginActivity extends BaseActivity {
 
     }
     private void init() {
-        imgPic = findViewById(R.id.img_inbetweening);
+
         cardLogin = findViewById(R.id.card_sina_login);
         linearLayout = findViewById(R.id.linear_login);
     }

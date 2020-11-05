@@ -80,12 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:alpha="0.2"/>
-        <ListView
-            android:id="@+id/lv_tag"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-        </ListView>
 
     </LinearLayout>
 

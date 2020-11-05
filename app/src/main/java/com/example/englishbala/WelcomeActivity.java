@@ -117,23 +117,9 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
                     imgBackground.startAnimation(animation);
                 }
             }, 500);
-            // 设置学习提醒
-            //if (ConfigData.getIsAlarm()) {
-            //int hour = Integer.parseInt(ConfigData.getAlarmTime().split("-")[0]);
-            //int minute = Integer.parseInt(ConfigData.getAlarmTime().split("-")[1]);
-            //AlarmActivity.startAlarm(hour, minute, false, false);
-        }
-        // 设置通知栏单词
-        //if (ConfigData.getIsNotifyLearn()) {
-        //if (!BaseActivity.isServiceExisted(MyApplication.getContext(), NotifyLearnService.class.getName())) {
-        // 检查当前是否数据有效
-        //LearnInNotifyActivity.checkIsAvailable();
-        //LearnInNotifyActivity.startService(ConfigData.getNotifyLearnMode());
-        //}
-        //}
 
-        //MainActivity.lastFragment = 0;
-        //MainActivity.needRefresh = true;
+        }
+
     }
 
 
@@ -216,10 +202,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
                     if (userConfigs.get(0).getCurrentBookId() == -1) {
                         Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                         startActivity(intent);
-                    } //else if (userConfigs.get(0).getCurrentBookId() != -1 && userConfigs.get(0).getWordNeedReciteNum() == 0) {
-                        //Intent intent = new Intent(WelcomeActivity.this, ChangePlanActivity.class);
-                        //startActivity(intent);
-                   // }
+                    }
                 else {
 
                         // 后台更新登录时间
