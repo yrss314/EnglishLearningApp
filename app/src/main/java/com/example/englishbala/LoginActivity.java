@@ -81,12 +81,12 @@ public class LoginActivity extends BaseActivity {
 
         init();
 
-        //Glide.with(this).load(R.drawable.pic_learning).into(imgPic);  //登录页插图渐变出现
+
 
         // 渐变动画
         AlphaAnimation animation = new AlphaAnimation(0.0f, 1.0f);
         animation.setDuration(2000);
-        imgPic.startAnimation(animation);
+
 
         cardLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -168,16 +168,14 @@ public class LoginActivity extends BaseActivity {
                                     user.setUserProfile(jsonSina.getProfile_image_url());
                                     user.setUserId(jsonSina.getId());
                                     // 测试
-                                    user.setUserMoney(0);
-                                    user.setUserWordNumber(0);
-                                    user.save();
+                                    user.save();//必须有这句话！！！
                                 }
                                 // 查询在用户配置表中，是否存在该用户，若没有，则新建数据
                                 List<UserConfig> userConfigs = LitePal.where("userId = ?", jsonSina.getId() + "").find(UserConfig.class);
                                 if (userConfigs.isEmpty()) {
                                     UserConfig userConfig = new UserConfig();
                                     userConfig.setUserId(jsonSina.getId());
-                                    userConfig.setCurrentBookId(-1);
+                                    //userConfig.setCurrentBookId(-1);
                                     userConfig.save();
                                 }
                                 // 默认已登录并设置已登录的微博ID

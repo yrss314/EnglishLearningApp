@@ -144,7 +144,6 @@ public class BaseActivity extends AppCompatActivity {
                 result = tem;
             }
             imgVertical = HttpHelper.requestBytes(result);
-            json = HttpHelper.requestResult(ConstantData.DAILY_SENTENCE_API);
             Gson gson2 = new Gson();
 
             dailyData.setPicHorizontal(imgHorizontal);

@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
 
-        //search setting
+        //search
         MenuItem mSearch = menu.findItem(R.id.action_search);
         SearchView mSearchView = (SearchView) mSearch.getActionView();
 
@@ -332,7 +332,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 System.out.println("main点击item后从数据库获得"+curNote.getImg());//已获得！！！
 
                 System.out.println(buff);//成功转换
-                startActivityForResult(intent, 1);      //collect data from edit
+                startActivityForResult(intent, 1);
                 Log.d(TAG, "onItemClick: " + position);
                 break;
         }

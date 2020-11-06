@@ -14,13 +14,8 @@ public class User extends LitePalSupport {
 
     private String userName;
 
-    // 词汇量
-    @Column(defaultValue = "0")
-    private int userWordNumber;
 
-    // 金币数
-    @Column(defaultValue = "0")
-    private int userMoney;
+
 
     public long getUserId() {
         return userId;
@@ -46,20 +41,7 @@ public class User extends LitePalSupport {
         this.userName = userName;
     }
 
-    public int getUserWordNumber() {
-        return userWordNumber;
-    }
 
-    public void setUserWordNumber(int userWordNumber) {
-        this.userWordNumber = userWordNumber;
-    }
 
-    public int getUserMoney() {
-        return userMoney;
-    }
-
-    public void setUserMoney(int userMoney) {
-        this.userMoney = userMoney;
-    }
 
 }

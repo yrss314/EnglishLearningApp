@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">备忘</string>
+    <string name="app_name">记事</string>
     <string name="content">Content</string>
     <string name="time">Time</string>
     <string name="pref_night_summary">这是黑夜模式哦~</string>

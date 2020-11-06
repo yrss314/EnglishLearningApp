@@ -65,7 +65,7 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
                     List<DailyData> dailyDataList = LitePal.where("dayTime = ?", TimeController.getCurrentDateStamp() + "").find(DailyData.class);
                     if (!dailyDataList.isEmpty()) {
                         DailyData dailyData = dailyDataList.get(0);
-                        textWelCome.setText("感谢使用我的备忘。记录美好生活记录不开心~");
+                        textWelCome.setText("感谢使用我的记事。记录美好生活记录不开心~");
                         Glide.with(WelcomeActivity.this).load(dailyData.getPicVertical()).into(imgBackground);
                     }
                     break;
@@ -196,27 +196,15 @@ public class WelcomeActivity extends BaseActivity implements View.OnClickListene
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                // 已登录，进入首页/选择词书
+                // 已登录
                 if (ConfigData.getIsLogged()) {
                     List<UserConfig> userConfigs = LitePal.where("userId = ?", ConfigData.getSinaNumLogged() + "").find(UserConfig.class);
-                    if (userConfigs.get(0).getCurrentBookId() == -1) {
-                        Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    }
-                else {
 
-                        // 后台更新登录时间
-                        new Thread(new Runnable() {
-                            @Override
-                            public void run() {
-                                updateServerData();
-                            }
-                        }).start();
                         Intent intent = new Intent(WelcomeActivity.this, MainActivity.class);
                         startActivity(intent);
-                    }
+
                 }
-                // 未登录，进入登录页面
+                // 未登录???
                 else {
                     Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
                     startActivity(intent);

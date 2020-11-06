@@ -35,7 +35,7 @@ public class DBOrders {
 
     //把note 加入到database里面
     public NoteBean addNote(NoteBean note){
-        //add a note object to database
+        //添加
         ContentValues contentValues = new ContentValues();
         contentValues.put(NoteDatabase.CONTENT, note.getContent());
         contentValues.put(NoteDatabase.TIME, note.getTime());
@@ -75,19 +75,19 @@ public class DBOrders {
     }
 
     public int updateNote(NoteBean note) {
-        //update the info of an existing note
+        //更新
         ContentValues values = new ContentValues();
         values.put(NoteDatabase.CONTENT, note.getContent());
         values.put(NoteDatabase.TIME, note.getTime());
         values.put(NoteDatabase.MODE, note.getTag());
         values.put(NoteDatabase.IMG, note.getImg());
-        // updating row
+
         return db.update(NoteDatabase.TABLE_NAME, values,
                 NoteDatabase.ID + "=?",new String[] { String.valueOf(note.getId())});
     }
 
     public void removeNote(NoteBean note) {
-        //remove a note according to ID value
+        //删除一条记录
         db.delete(NoteDatabase.TABLE_NAME, NoteDatabase.ID + "=" + note.getId(), null);
     }
 

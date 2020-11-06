@@ -14,7 +14,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class BaiduHelper {
+public class BaiduHelper {//如打开https://api.weibo.com/2/users/show.json?access_token=2.008lXyjH03TV3Zd214aeb568DQGb7C&uid=7092294417可以获得我的接口调用得到的数据
     private static final String TAG = "BaiduHelper";
 
     public static final String API_KEY = "f5NKQi3sY4me8Yr4vb3VjuwL";

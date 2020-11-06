@@ -49,14 +49,13 @@ public class FliterNoteAdap extends BaseAdapter implements Filterable {//search�
         TextView tv_content = (TextView)v.findViewById(R.id.tv_content);
         TextView tv_time = (TextView)v.findViewById(R.id.tv_time);
 
-        //Set text for TextView
+        //Set
         String allText = noteList.get(position).getContent();
-        /*if (sharedPreferences.getBoolean("noteTitle" ,true))
-            tv_content.setText(allText.split("\n")[0]);*/
+
         tv_content.setText(allText);
         tv_time.setText(noteList.get(position).getTime());
 
-        //Save note id to tag
+        //Save
         v.setTag(noteList.get(position).getId());
 
         return v;
@@ -92,7 +91,7 @@ public class FliterNoteAdap extends BaseAdapter implements Filterable {//search�
 
             return result;
         }
-        //在publishResults方法中告诉适配器更新界面
+        //在publishResults方法中告诉适配器更新界面!!
         @Override
         protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
             noteList = (List<NoteBean>)filterResults.values;

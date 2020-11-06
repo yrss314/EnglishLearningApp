@@ -47,17 +47,9 @@ public class EditActivity extends AppCompatActivity {
     private int openMode = 0;
     private int tag = 1;
     public Intent myintent = new Intent(); // message to be sent
-    private boolean tagChange = false;
-    private final String TAG = "tag";
-    private byte buff[] = new byte[125*250];
-    public boolean isNightMode(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        return sharedPreferences.getBoolean("nightMode", false);
-    }
-    public void setNightMode(){
-        setTheme(R.style.DayTheme);
 
-    }
+    private byte buff[] = new byte[125*250];
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,7 +97,7 @@ public class EditActivity extends AppCompatActivity {
 
         }
 
-        setNightMode();
+
     }
 
 
